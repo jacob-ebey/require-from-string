@@ -27,8 +27,5 @@ module.exports = function requireFromString(code, filename, opts) {
 	m.paths = [].concat(opts.prependPaths).concat(paths).concat(opts.appendPaths);
 	m._compile(code, filename);
 
-	var exports = m.exports;
-	parent && parent.children && parent.children.splice(parent.children.indexOf(m), 1);
-
-	return exports;
+	return m;
 };
